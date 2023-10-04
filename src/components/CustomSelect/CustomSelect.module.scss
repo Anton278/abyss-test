@@ -1,0 +1,47 @@
+.customSelect {
+  position: relative;
+}
+
+.customSelectHead {
+  padding: 10px 20px;
+  background: #fff;
+  color: #9e9e9e;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #9e9e9e;
+    color: #fff;
+  }
+}
+
+.customSelectBody {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: -25px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease-out;
+}
+
+.customSelectBodyOpen {
+  opacity: 1;
+  visibility: visible;
+}
+
+.customSelectOption {
+  background: #fff;
+  border: none;
+  padding: 7px 17px;
+  cursor: pointer;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+
+  &:hover {
+    background: #e0e0e0;
+  }
+}
