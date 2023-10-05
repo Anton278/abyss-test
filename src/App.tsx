@@ -5,14 +5,12 @@ import {
   MdAdd,
   MdEdit,
   MdClose,
-  MdCancel,
   MdCheck,
 } from "react-icons/md";
 
 import Header from "./components/Header";
 
 import s from "./App.module.scss";
-import { generateNum } from "./utils/generateNum";
 
 type TreeNode = {
   name: string;
@@ -32,8 +30,6 @@ function App() {
     const res = (
       <ul>
         {data.map((node, i) => {
-          const key = generateNum.next().value as number;
-
           let childrenNodes;
           if (node.children) {
             childrenNodes = getTree(node.children);
