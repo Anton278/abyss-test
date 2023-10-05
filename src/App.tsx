@@ -10,13 +10,17 @@ import {
 import Header from "./components/Header";
 
 import s from "./App.module.scss";
+import { generateNum } from "./utils/generateNum";
 
 function App() {
   const [zoom, setZoom] = useState("100");
   const [data, setData] = useState([
     {
       name: "Category 1",
-      children: [{ name: "sub category 1" }, { name: "sub category 2" }],
+      children: [
+        { name: "sub category 1", children: [{ name: "sub sub category 1" }] },
+        { name: "sub category 2" },
+      ],
     },
     {
       name: "Category 2",
@@ -25,6 +29,47 @@ function App() {
       name: "Category 3",
     },
   ]);
+
+  function getTree(data: any[]) {
+    const res = (
+      <ul>
+        {data.map((node) => {
+          const key = generateNum.next().value as number;
+
+          let childrenNodes;
+          if (node.children) {
+            childrenNodes = getTree(node.children);
+          }
+
+          return (
+            <li key={key}>
+              <div className={s.node}>
+                <p>{node.name}</p>
+                <div className={s.nodeActions}>
+                  <button className={s.nodeActionButton}>
+                    <MdAdd />
+                  </button>
+                  <button className={s.nodeActionButton}>
+                    <MdEdit />
+                  </button>
+                  <button
+                    className={[s.nodeActionButton, s.redBackground].join(" ")}
+                  >
+                    <MdClose />
+                  </button>
+                </div>
+              </div>
+              {childrenNodes}
+            </li>
+          );
+        })}
+      </ul>
+    );
+
+    return res;
+  }
+
+  const tree = getTree(data);
 
   return (
     <>
@@ -53,112 +98,7 @@ function App() {
                   </button>
                 </div>
               </div>
-              <ul>
-                <li>
-                  <div className={s.node}>
-                    <p>Category 1</p>
-                    <div className={s.nodeActions}>
-                      <button className={s.nodeActionButton}>
-                        <MdAdd />
-                      </button>
-                      <button className={s.nodeActionButton}>
-                        <MdEdit />
-                      </button>
-                      <button
-                        className={[s.nodeActionButton, s.redBackground].join(
-                          " "
-                        )}
-                      >
-                        <MdClose />
-                      </button>
-                    </div>
-                  </div>
-                  <ul>
-                    <li>
-                      <div className={s.node}>
-                        <p>Sub Category 1</p>
-                        <div className={s.nodeActions}>
-                          <button className={s.nodeActionButton}>
-                            <MdAdd />
-                          </button>
-                          <button className={s.nodeActionButton}>
-                            <MdEdit />
-                          </button>
-                          <button
-                            className={[
-                              s.nodeActionButton,
-                              s.redBackground,
-                            ].join(" ")}
-                          >
-                            <MdClose />
-                          </button>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div className={s.node}>
-                        <p>Sub Category 2</p>
-                        <div className={s.nodeActions}>
-                          <button className={s.nodeActionButton}>
-                            <MdAdd />
-                          </button>
-                          <button className={s.nodeActionButton}>
-                            <MdEdit />
-                          </button>
-                          <button
-                            className={[
-                              s.nodeActionButton,
-                              s.redBackground,
-                            ].join(" ")}
-                          >
-                            <MdClose />
-                          </button>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <div className={s.node}>
-                    <p>Category 2</p>
-                    <div className={s.nodeActions}>
-                      <button className={s.nodeActionButton}>
-                        <MdAdd />
-                      </button>
-                      <button className={s.nodeActionButton}>
-                        <MdEdit />
-                      </button>
-                      <button
-                        className={[s.nodeActionButton, s.redBackground].join(
-                          " "
-                        )}
-                      >
-                        <MdClose />
-                      </button>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div className={s.node}>
-                    <p>Category 3</p>
-                    <div className={s.nodeActions}>
-                      <button className={s.nodeActionButton}>
-                        <MdAdd />
-                      </button>
-                      <button className={s.nodeActionButton}>
-                        <MdEdit />
-                      </button>
-                      <button
-                        className={[s.nodeActionButton, s.redBackground].join(
-                          " "
-                        )}
-                      >
-                        <MdClose />
-                      </button>
-                    </div>
-                  </div>
-                </li>
-              </ul>
+              {tree}
             </li>
           </ul>
         </div>
