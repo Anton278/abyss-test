@@ -1,0 +1,163 @@
+.main {
+  flex-grow: 1;
+  position: relative;
+  // overflow: hidden;
+}
+
+.chevronTop {
+  transform: rotateZ(90deg);
+}
+
+.chevronBottom {
+  transform: rotateZ(90deg);
+}
+
+.scrollBtn {
+  position: absolute;
+  border: none;
+  padding: 0;
+  background: #bdbdbd;
+  color: #fff;
+  font-size: 24px;
+  width: 85px;
+  height: 35px;
+  cursor: pointer;
+
+  &:hover {
+    background: #aaaaaa;
+  }
+}
+
+.scrollBtn:nth-of-type(1) {
+  left: 0;
+  top: 50%;
+  width: 35px;
+  height: 85px;
+  transform: translateY(-50%);
+}
+
+.scrollBtn:nth-of-type(2) {
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.scrollBtn:nth-of-type(3) {
+  right: 0;
+  top: 50%;
+  width: 35px;
+  height: 85px;
+  transform: translateY(-50%);
+}
+
+.scrollBtn:nth-of-type(4) {
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+// tree styles
+
+.tree {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tree ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  column-gap: 120px;
+  position: relative;
+}
+
+.tree ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 30px;
+  position: relative;
+}
+
+.tree ul li:first-of-type::before {
+  display: none;
+}
+.tree ul li:last-of-type::after {
+  display: none;
+}
+
+.tree ul li:only-child {
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-left: 1px solid #999;
+    left: 50%;
+    width: 0px;
+    bottom: 100%;
+  }
+}
+
+.tree ul:first-child > li {
+  &::before,
+  &::after {
+    display: none;
+  }
+}
+
+.tree ul li::after,
+.tree ul li::before {
+  content: "";
+  position: absolute;
+  height: 15px;
+  border-top: 1px solid #999;
+  bottom: 100%;
+  width: calc(50% + 101px);
+}
+
+.tree ul li::after {
+  border-left: 1px solid #999;
+  left: 50%;
+}
+
+.tree ul li::before {
+  right: 50%;
+}
+
+.tree ul li:last-of-type:before {
+  border-right: 1px solid #999;
+}
+
+.tree ul:first-child::before {
+  display: none;
+}
+
+.tree ul::before {
+  content: "";
+  position: absolute;
+  height: 15px;
+  border-left: 1px solid #999;
+  bottom: calc(100% + 15px);
+  left: 50%;
+}
+
+.tree p {
+  margin: 0;
+}
+
+.node {
+  position: relative;
+  width: max-content;
+}
+.nodeActions {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 10px;
+  left: 100%;
+  display: flex;
+  column-gap: 5px;
+}
