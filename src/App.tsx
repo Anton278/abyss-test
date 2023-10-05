@@ -64,6 +64,7 @@ function App() {
                         className={[s.nodeActionButton, s.redBackground].join(
                           " "
                         )}
+                        onClick={() => deleteNode(i)}
                       >
                         <MdClose />
                       </button>
@@ -116,6 +117,9 @@ function App() {
       )
     );
     setInputVal("");
+  }
+  function deleteNode(deleteingNodeIdx: number) {
+    setData((oldData) => oldData.filter((_, i) => i !== deleteingNodeIdx));
   }
 
   return (
