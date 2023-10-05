@@ -45,10 +45,12 @@ function App() {
         <div className={s.tree}>
           <ul>
             <li>
-              <div className={s.node}>
+              <div className={[s.topNode, s.node].join(" ")}>
                 <p>Categories</p>
                 <div className={s.nodeActions}>
-                  <button>+</button>
+                  <button className={s.nodeActionButton}>
+                    <MdAdd />
+                  </button>
                 </div>
               </div>
               <ul>
@@ -56,9 +58,19 @@ function App() {
                   <div className={s.node}>
                     <p>Category 1</p>
                     <div className={s.nodeActions}>
-                      <button>+</button>
-                      <button>Edit</button>
-                      <button>-</button>
+                      <button className={s.nodeActionButton}>
+                        <MdAdd />
+                      </button>
+                      <button className={s.nodeActionButton}>
+                        <MdEdit />
+                      </button>
+                      <button
+                        className={[s.nodeActionButton, s.redBackground].join(
+                          " "
+                        )}
+                      >
+                        <MdClose />
+                      </button>
                     </div>
                   </div>
                   <ul>
@@ -66,9 +78,20 @@ function App() {
                       <div className={s.node}>
                         <p>Sub Category 1</p>
                         <div className={s.nodeActions}>
-                          <button>+</button>
-                          <button>Edit</button>
-                          <button>-</button>
+                          <button className={s.nodeActionButton}>
+                            <MdAdd />
+                          </button>
+                          <button className={s.nodeActionButton}>
+                            <MdEdit />
+                          </button>
+                          <button
+                            className={[
+                              s.nodeActionButton,
+                              s.redBackground,
+                            ].join(" ")}
+                          >
+                            <MdClose />
+                          </button>
                         </div>
                       </div>
                     </li>
@@ -76,9 +99,20 @@ function App() {
                       <div className={s.node}>
                         <p>Sub Category 2</p>
                         <div className={s.nodeActions}>
-                          <button>+</button>
-                          <button>Edit</button>
-                          <button>-</button>
+                          <button className={s.nodeActionButton}>
+                            <MdAdd />
+                          </button>
+                          <button className={s.nodeActionButton}>
+                            <MdEdit />
+                          </button>
+                          <button
+                            className={[
+                              s.nodeActionButton,
+                              s.redBackground,
+                            ].join(" ")}
+                          >
+                            <MdClose />
+                          </button>
                         </div>
                       </div>
                     </li>
@@ -88,9 +122,19 @@ function App() {
                   <div className={s.node}>
                     <p>Category 2</p>
                     <div className={s.nodeActions}>
-                      <button>+</button>
-                      <button>Edit</button>
-                      <button>-</button>
+                      <button className={s.nodeActionButton}>
+                        <MdAdd />
+                      </button>
+                      <button className={s.nodeActionButton}>
+                        <MdEdit />
+                      </button>
+                      <button
+                        className={[s.nodeActionButton, s.redBackground].join(
+                          " "
+                        )}
+                      >
+                        <MdClose />
+                      </button>
                     </div>
                   </div>
                 </li>
@@ -98,9 +142,19 @@ function App() {
                   <div className={s.node}>
                     <p>Category 3</p>
                     <div className={s.nodeActions}>
-                      <button>+</button>
-                      <button>Edit</button>
-                      <button>-</button>
+                      <button className={s.nodeActionButton}>
+                        <MdAdd />
+                      </button>
+                      <button className={s.nodeActionButton}>
+                        <MdEdit />
+                      </button>
+                      <button
+                        className={[s.nodeActionButton, s.redBackground].join(
+                          " "
+                        )}
+                      >
+                        <MdClose />
+                      </button>
                     </div>
                   </div>
                 </li>

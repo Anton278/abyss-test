@@ -146,11 +146,13 @@
 
 .tree p {
   margin: 0;
+  font-weight: bold;
 }
 
 .node {
   position: relative;
   width: max-content;
+  cursor: move;
 }
 .nodeActions {
   position: absolute;
@@ -160,4 +162,36 @@
   left: 100%;
   display: flex;
   column-gap: 5px;
+}
+
+.node p {
+  padding: 10px 15px;
+  color: #fff;
+  background-color: #ffa726;
+}
+
+.topNode p {
+  padding: 10px 15px;
+  background: #fff;
+  border: 1px dashed #999;
+  color: #000;
+}
+
+.nodeActionButton {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  background-color: #999;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.redBackground {
+  background: #e53935;
 }
